@@ -75,7 +75,7 @@ main {
     margin: 1em;
 }
 .generator-progress {
-    margin-top: 2``em;
+    margin-top: 2em;
     width: 700px;
     height: 30px;
     background-color: green;
@@ -93,14 +93,18 @@ main {
     font-size: 24px;
 }
 .generator-button {
+    cursor: pointer;
+    margin-top: .5em;
     width: 200px;
+    font-size: 20px;
+    height: 50px;
+    background-color: lightgreen;
 }
 .video-popup {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 25%;
-    height: 25%;
+    width: 380px;
     display: none;
     align-items: center;
     justify-content: center;
@@ -114,8 +118,8 @@ main {
 .close-button {
     color: black;
     position: absolute;
-    top: 36px;
-    right: 8px;
+    top: 16px;
+    right: 10px;
     background: none;
     border: none;
     cursor: pointer;

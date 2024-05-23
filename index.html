@@ -145,11 +145,10 @@
 </script>
 <script> // JS for the video popup
     window.onload = function() {
-        setTimeout(function() {
-            const videoPopup = document.getElementById('videoPopup');
-            const popupVideo = document.getElementById('popupVideo');
-            videoPopup.style.display = 'flex';
-        }, 0); // 3000ms = 3 seconds
+        const videoPopup = document.getElementById('videoPopup');
+        const popupVideo = document.getElementById('popupVideo');
+        videoPopup.style.display = 'flex';
+        popupVideo.play(); // Start the video
     };
 
     document.getElementById('closeButton').addEventListener('click', function() {
@@ -157,6 +156,16 @@
         const popupVideo = document.getElementById('popupVideo');
         videoPopup.style.display = 'none';
         popupVideo.pause();
+    });
+</script>
+<script>
+        document.getElementById('generator-button').addEventListener('click', function() {
+        const progressBar = document.getElementById('progressBar');
+        startProgressBar(5000, progressBar); // 5000ms = 5 seconds
+
+        // Disable the button and change its color after it's clicked
+        this.disabled = true;
+        this.style.backgroundColor = 'gray';
     });
 </script>
 </html>
