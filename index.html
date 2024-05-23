@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWF</title>
+</head>
+<body>
+    <header> <!--1/6th of the screen-->
+        <img src="static/logo.png" class="logo">
+        <div class="collections">
+            <span class="collections-heading">Featured Collections</span>
+            <div class="collections-list">
+                <button class="collections-button">Hollywood</button>
+                <button class="collections-button">1600s-1800s</button>
+                <button class="collections-button">Royalty</button>
+                <button class="collections-button">Artists</button>
+                <button class="collections-button">Roaring 20s</button>
+            </div>
+        </div>
+    </header>
+    <div id="videoPopup" class="video-popup">
+        <video id="popupVideo" src="static/intro.mp4" autoplay></video>
+        <button id="closeButton" class="close-button">X</button>
+    </div>
+    <main> <!-- 4/6ths of the screen-->
+        <!--GRID layout for the entire website-->
+        <div class="left-column">
+            <div class="description">
+                <h3>Welcome,</h3>
+                <p>Welcome to Perfect Woman Finder! Our unique service helps you discover your ideal match by utilizing a vast database of women's faces. Simply select your preferences, and our advanced algorithms will analyze and match them to the profiles in our database. Whether you're looking for specific features or a general look, we're here to help you find the perfect woman who meets your criteria. Start your journey now and see who awaits!</p>
+            </div>
+            <div class="frequentfinds">
+                <h3>Frequent Finds</h3>
+                <div class="frequentfinds-list">
+                    <article class="ff">
+                        <img src="static/taylorswift.jpg" class="ff-img">
+                        <h3 class="ff-title">Taylor Swift</h3>
+                    </article>
+                    <article class="ff">
+                        <img  src="static/billieeilish.jpg" class="ff-img">
+                        <h3 class="ff-title">Billie Eilish</h3>
+                    </article>
+                    <article class="ff">
+                        <img src="static/zendaya.jpg" class="ff-img">
+                        <h3 class="ff-title">Zendaya</h3>
+                    </article>
+                    <article class="ff">
+                        <img src="static/daisyridley.jpg" class="ff-img">
+                        <h3 class="ff-title">Daisy Ridley</h3>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="generator">
+            <div class="generator-element">
+                <div class="generator-image"></div>
+            </div>
+            <div id="progressBarContainer" class="generator-progress" style="background-color: #f3f3f3;">
+                <div id="progressBar" style="width: 0%; height: 30px; background-color: #4caf50;"></div>
+            </div>
+            <button class="generator-button">GENERATE</button>
+        </div>
+        <div class="filters">
+            <div class="filter">
+                <form>
+                    <fieldset>
+                        <legend>Age</legend>
+                        <input type="radio">
+                        <label>18-24</label><br>
+                        <input type="radio">
+                        <label >25-28</label><br>
+                        <input type="radio">
+                        <label>29-35</label><br>
+                        <input type="radio">
+                        <label>36-42</label><br>
+                        <input type="radio">
+                        <label>43-50</label><br>
+                        <input type="radio">
+                        <label>50-60</label><br>
+                        <input type="radio">
+                        <label>65-75</label><br>
+                        <input type="radio">
+                        <label>76+</label><br>
+
+                        
+                    </fieldset>
+                </form>
+            </div>
+            <div class="filter">
+                <form>
+                    <fieldset>
+                        <legend>Body Type</legend>
+                        <input type="radio" id="apple" name="fruit" value="apple">
+                        <label for="apple">Apple</label><br>
+                        <input type="radio" id="banana" name="fruit" value="banana">
+                        <label for="banana">Banana</label><br>
+                        <input type="radio" id="cherry" name="fruit" value="cherry">
+                        <label for="cherry">Cherry</label><br>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="filter">
+                <form>
+                    <fieldset>
+                        <legend>Personality</legend>
+                        <input type="radio" id="apple" name="fruit" value="apple">
+                        <label for="apple">Apple</label><br>
+                        <input type="radio" id="banana" name="fruit" value="banana">
+                        <label for="banana">Banana</label><br>
+                        <input type="radio" id="cherry" name="fruit" value="cherry">
+                        <label for="cherry">Cherry</label><br>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer><!--bottom portion, 1/6th of the screen--></footer>
+    
+</body>
+<script> // JS for the progress bar
+    document.querySelector('.generator-button').addEventListener('click', function() {
+        const progressBar = document.getElementById('progressBar');
+        startProgressBar(15000, progressBar); // 5000ms = 5 seconds
+    });
+
+    function startProgressBar(duration, element) {
+        let start = null;
+        let level = 0;
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            const progress = timestamp - start;
+            const nextLevel = Math.floor(progress / duration * 50) * 2;
+            if (nextLevel > level) {
+                level = nextLevel;
+                element.style.width = level + '%';
+            }
+            if (progress < duration) {
+                window.requestAnimationFrame(step);
+            }
+        }
+        window.requestAnimationFrame(step);
+    }
+</script>
+<script> // JS for the video popup
+    window.onload = function() {
+        setTimeout(function() {
+            const videoPopup = document.getElementById('videoPopup');
+            const popupVideo = document.getElementById('popupVideo');
+            videoPopup.style.display = 'flex';
+        }, 0); // 3000ms = 3 seconds
+    };
+
+    document.getElementById('closeButton').addEventListener('click', function() {
+        const videoPopup = document.getElementById('videoPopup');
+        const popupVideo = document.getElementById('popupVideo');
+        videoPopup.style.display = 'none';
+        popupVideo.pause();
+    });
+</script>
+</html>

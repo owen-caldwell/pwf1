@@ -1,0 +1,126 @@
+body {
+    display: block;
+    background-color: #F7B7D7;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+h1, h2, h3 {font-weight: normal;}
+header {
+    display: flex;
+    width: 100%;
+    margin: 1em;
+    height: auto;
+}
+.logo {
+    width: 300px;
+    height: auto;
+}
+.collections {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin-left: 1em;
+}
+.collections-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.collections-button {
+    font-size: 14px;
+    border: none;
+    background-color: #D9D9D9;
+    padding: 3px;
+    margin: 5px;
+}
+main {
+    display: grid;
+    grid-template-columns: 23% 60% 17%; /* change later */
+    max-width: 100%;
+    margin: 2em 1em 0 2em;
+}
+.left-column {
+    display: flex;
+    flex-direction: column;
+}
+.frequentfinds {
+    display: flex;
+    flex-direction: column;
+}
+.frequentfinds-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.ff {
+    display: flex;
+    flex-direction: column;
+    width: 130px;
+    margin: .5em;
+}
+.ff-img {
+    width: 130px;
+    border: 3px solid #6F6F6F;
+}
+.ff-title {
+    background-color: #D9D9D9;
+    border: 1px solid #6F6F6F;
+    padding: 5px;
+    font-size: 14px;
+}
+.generator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+}
+.generator-progress {
+    margin-top: 2``em;
+    width: 700px;
+    height: 30px;
+    background-color: green;
+    border: 2px solid black;
+}
+.generator-image {
+    height: 400px;
+    width: 300px;
+    background-color: #D9D9D9;
+}
+.generator-title {
+    font-weight: bold;
+    color: purple;
+    text-align: center;
+    font-size: 24px;
+}
+.generator-button {
+    width: 200px;
+}
+.video-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    height: 25%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+#popupVideo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.close-button {
+    color: black;
+    position: absolute;
+    top: 36px;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.filters {
+    background-color: #D9D9D9;
+    border: 3px solid #6F6F6F;
+}
